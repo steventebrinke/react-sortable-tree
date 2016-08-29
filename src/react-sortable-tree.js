@@ -86,6 +86,10 @@ class ReactSortableTree extends Component {
         this.loadLazyChildren();
     }
 
+    // componentWillUpdate() {
+    //     console.log(1);
+    // }
+
     componentWillReceiveProps(nextProps) {
         if (this.props.treeData !== nextProps.treeData) {
             // Load any children defined by a function
@@ -206,7 +210,7 @@ class ReactSortableTree extends Component {
             rowHeight,
         } = this.props;
         const { rows } = this.state;
-
+        console.log('ctodo((((rows.map))))', rows.map(a => a.node.title));
         return (
             <div
                 className={styles.tree + (className ? ` ${className}` : '')}
@@ -225,7 +229,8 @@ class ReactSortableTree extends Component {
                             rowRenderer={({ index }) => this.renderRow(
                                 rows[index],
                                 index,
-                                () => (rows[index - 1] || null)
+                                // () => (rows[index - 1] || null)
+                                (extra) => (rows[index - (extra ? 2 : 1)] || null)
                             )}
                         />
                     )}

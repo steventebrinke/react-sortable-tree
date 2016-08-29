@@ -15,65 +15,76 @@ class App extends Component {
                     subtitle: 'Pancakes',
                     expanded: true,
                     children: [
-                        {
-                            id: 1,
-                            title: 'Joe',
-                            subtitle: 'Pancakes',
-                            children: [], // null or undefined also ok
-                        },
+                        // {
+                        //     id: 1,
+                        //     title: 'Joe',
+                        //     subtitle: 'Pancakes',
+                        //     children: [], // null or undefined also ok
+                        // },
+                        // {
+                        //     title: 'Plain Jane',
+                        // },
+                        // {
+                        //     title: 'Mr. Lazy',
+                        //     children: ({ done }) => { // Allow for lazy loading of children
+                        //         setTimeout(() => {
+                        //             done([
+                        //                 {
+                        //                     key: 1215,
+                        //                     title: 5,
+                        //                 },
+                        //                 {
+                        //                     key: 2125,
+                        //                     title: 215,
+                        //                 },
+                        //             ]);
+                        //         }, 2000);
+                        //     },
+                        // },
+                    ],
+                },
+                {
+                    id: 1,
+                    title: 'Joe',
+                    expanded: true,
+                    subtitle: 'Pancakes',
+                    children: [
                         {
                             title: 'Plain Jane',
                         },
-                        {
-                            title: 'Mr. Lazy',
-                            children: ({ done }) => { // Allow for lazy loading of children
-                                setTimeout(() => {
-                                    done([
-                                        {
-                                            key: 1215,
-                                            title: 5,
-                                        },
-                                        {
-                                            key: 2125,
-                                            title: 215,
-                                        },
-                                    ]);
-                                }, 2000);
-                            },
-                        },
-                    ],
+                    ], // null or undefined also ok
                 },
                 {
                     id: 'b12315',
                     title: 'Frank',
                 },
-                {
-                    id: 'b12316',
-                    title: 'Really Long Name Nicholas Who Always Got' +
-                        ' Picked on in School For His Really Long Name',
-                    subtitle: 'Really good icebreaker, though',
-                    children: [
-                        {
-                            title: 'Bruce',
-                            children: [
-                                { title: 'Bruce Jr.' },
-                                { title: 'Brucette Jr.' },
-                            ],
-                        },
-                        {
-                            title: 'Trevor',
-                            children: [
-                                { title: 'Trevor Jr.' },
-                                { title: 'Trevor Jr. 2' },
-                            ],
-                        },
-                    ],
-                },
-                {
-                    id: 'b12336',
-                    title: 'Tracy Page',
-                    subtitle: 'Waffles',
-                },
+                // {
+                //     id: 'b12316',
+                //     title: 'Really Long Name Nicholas Who Always Got' +
+                //         ' Picked on in School For His Really Long Name',
+                //     subtitle: 'Really good icebreaker, though',
+                //     children: [
+                //         {
+                //             title: 'Bruce',
+                //             children: [
+                //                 { title: 'Bruce Jr.' },
+                //                 { title: 'Brucette Jr.' },
+                //             ],
+                //         },
+                //         {
+                //             title: 'Trevor',
+                //             children: [
+                //                 { title: 'Trevor Jr.' },
+                //                 { title: 'Trevor Jr. 2' },
+                //             ],
+                //         },
+                //     ],
+                // },
+                // {
+                //     id: 'b12336',
+                //     title: 'Tracy Page',
+                //     subtitle: 'Waffles',
+                // },
             ],
         };
 

@@ -44,6 +44,10 @@ function getNextPath(dropTargetProps, monitor) {
         // so we have to move one level up on the path
         if (rowAbove.node === draggedItem.node) {
             abovePath = rowAbove.path.slice(0, -1);
+            const two = dropTargetProps.getPrevRow(true);
+            if (two) {
+                abovePath = two.path.slice(0, -1);
+            }
         } else {
             abovePath = rowAbove.path;
         }
@@ -107,15 +111,18 @@ const myDropTarget = {
         const rowAbove = dropTargetProps.getPrevRow();
         if (rowAbove) {
             aboveTreeIndex = rowAbove.treeIndex + 1;
+            console.log('ctodo((((rowAbove.path))))', rowAbove.path);
+            console.log('ctodo((((rowAbove.node.title))))', rowAbove.node.title);
         }
 
-        const nextPath = getNextPath(dropTargetProps, monitor);
+        const parentPath = getNextPath(dropTargetProps, monitor);
+        console.log('ctodo((((parentPath))))', parentPath);
 
         dropTargetProps.dragHover({
             node:             monitor.getItem().node,
             path:             monitor.getItem().path,
             minimumTreeIndex: aboveTreeIndex,
-            parentPath:       nextPath,
+            parentPath,
         });
     },
 
