@@ -447,7 +447,7 @@ class ReactSortableTree extends Component {
                             estimatedRowSize={typeof rowHeight !== 'function' ? rowHeight : undefined}
                             rowHeight={rowHeight}
                             rowRenderer={({ index, key, style: rowStyle }) => this.renderRow(
-                                rows[index],
+                                rows,
                                 index,
                                 key,
                                 rowStyle,
@@ -462,7 +462,7 @@ class ReactSortableTree extends Component {
         } else {
             // Render list without react-virtualized
             list = rows.map((row, index) => this.renderRow(
-                row,
+                rows,
                 index,
                 getNodeKey({
                     node:      row.node,
@@ -484,7 +484,8 @@ class ReactSortableTree extends Component {
         );
     }
 
-    renderRow({ node, path, lowerSiblingCounts, treeIndex }, listIndex, key, style, getPrevRow, matchKeys) {
+    renderRow(rows, listIndex, key, style, getPrevRow, matchKeys) {
+        const { node, path, lowerSiblingCounts, treeIndex } = rows[listIndex];
         const TreeNodeRenderer    = this.treeNodeRenderer;
         const NodeContentRenderer = this.nodeContentRenderer;
         const nodeKey = path[path.length - 1];
@@ -503,6 +504,7 @@ class ReactSortableTree extends Component {
 
         return (
             <TreeNodeRenderer
+                rows={rows}
                 style={style}
                 key={key}
                 treeIndex={treeIndex}
