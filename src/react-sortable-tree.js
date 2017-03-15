@@ -137,7 +137,7 @@ class ReactSortableTree extends Component {
             } else {
                 this.loadLazyChildren(nextProps);
                 // Load any children defined by a function
-                this.search(nextProps, false, false);
+                this.search(nextProps, true, true);
             }
 
             // Calculate the rows to be shown from the new tree data
